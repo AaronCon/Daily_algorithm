@@ -5,7 +5,6 @@ class Node {
     this.next = null
   }
 }
-
 // 单项链表
 class LinkedList {
   constructor() {
@@ -39,7 +38,7 @@ class LinkedList {
     }
     this.size++
   }
-  // 获取指定未知的节点
+  // 获取指定位置的节点
   getNode(index) {
     if(index < 0 || index >= this.size) {
       throw new Error("out range")

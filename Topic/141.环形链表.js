@@ -17,7 +17,10 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-// 快慢指针
+/**
+ * 快慢指针
+ * (可以处理无限循环问题)
+*/
 var hasCycle = function(head) {
   if(head === null) return false
   let p1 = head
