@@ -17,7 +17,7 @@
  * @return {ListNode}
  */
 /**
- * 方法一: 理由虚拟头节点，以两个为单位交换链表
+ * 方法一: 利用虚拟头节点，以两个为单位交换链表
  */
 var swapPairs = function(head) {
   if(head === null || head.next === null) return head
