@@ -50,14 +50,27 @@ function mergeTwoLists(l1, l2) {
   return prehead.next
 }
 /**
- * 方法1：对数组每次两个递归合并
+ * 方法1：顺序合并，对数组每次两个递归合并
  */
+// var mergeKLists = function(lists) {
+//   let res = null
+//   for(let i = 0; i < lists.length; i++) {
+//     res = mergeTwoLists(res, lists[i])
+//   }
+//   return res
+// };
+
+/**
+ * 方法2：分治合并(还不是很理解)
+ */
+function merge(lists, l, r) {
+  if(l === r) return lists[l]
+  if(l > r) return null
+  let mid = Math.floor((l + r) / 2)
+  return mergeTwoLists(merge(lists, l, mid), merge(lists, mid + 1, r))
+}
 var mergeKLists = function(lists) {
-  let res = null
-  for(let i = 0; i < lists.length; i++) {
-    res = mergeTwoLists(res, lists[i])
-  }
-  return res
-};
+  return merge(lists, 0, lists.length - 1)
+}
 // @lc code=end
 
