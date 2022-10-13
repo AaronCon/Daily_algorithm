@@ -17,8 +17,23 @@
  * @param {number} k
  * @return {ListNode}
  */
+/**
+ * 将链表首尾相连成环
+ */
 var rotateRight = function(head, k) {
-
+  if(head === null) return head
+  let p = head, sum = 1
+  while(p.next) {
+    p = p.next
+    sum++
+  }
+  p.next = head
+  k %= sum
+  k = sum - k
+  while(k--) p = p.next
+  head = p.next
+  p.next = null
+  return head
 };
 // @lc code=end
 
