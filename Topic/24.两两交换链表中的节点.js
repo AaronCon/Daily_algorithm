@@ -17,20 +17,33 @@
  * @return {ListNode}
  */
 /**
- * 方法一: 利用虚拟头节点，以两个为单位交换链表
+ * 方法一: (迭代法)利用虚拟头节点，以两个为单位交换链表
+ */
+// var swapPairs = function(head) {
+//   if(head === null || head.next === null) return head
+//   let prehead = new ListNode(-1), p = prehead
+//   p.next = head
+//   do {
+//     let current = p.next.next 
+//     p.next.next = p.next.next.next
+//     current.next = p.next
+//     p.next = current
+//     p = p.next.next
+//   }while(p.next !== null && p.next.next !== null)
+//   return prehead.next
+// };
+
+/**
+ * 方法二: (递归法)
  */
 var swapPairs = function(head) {
-  if(head === null || head.next === null) return head
-  let prehead = new ListNode(-1), p = prehead
-  p.next = head
-  do {
-    let current = p.next.next
-    p.next.next = p.next.next.next
-    current.next = p.next
-    p.next = current
-    p = p.next.next
-  }while(p.next !== null && p.next.next !== null)
-  return prehead.next
-};
+  if(head === null || head.next === null) {
+    return head
+  }
+  let newHead = head.next
+  head.next = swapPairs(newHead.next)
+  newHead.next = head
+  return newHead
+}
 // @lc code=end
 
