@@ -34,8 +34,8 @@
 /**
  * 方法二：递归法
  */
-var isPalindrome = function(head) {
-
-};
+// var isPalindrome = function(head) {
+  
+// };
 // @lc code=end
 
